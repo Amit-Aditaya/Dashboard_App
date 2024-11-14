@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutex_admin/core/utils/local_strings.dart';
 import 'package:flutex_admin/data/model/authorization/authorization_response_model.dart';
 import 'package:flutex_admin/data/model/contact/contact_model.dart';
@@ -9,11 +10,11 @@ import 'package:flutex_admin/data/model/customer/customer_model.dart';
 import 'package:flutex_admin/data/model/customer/customer_post_model.dart';
 import 'package:flutex_admin/data/model/customer/groups_model.dart';
 import 'package:flutex_admin/data/model/global/countries_model.dart';
+import 'package:flutex_admin/data/model/global/response_model/response_model.dart';
 import 'package:flutex_admin/data/repo/customer/customer_repo.dart';
+import 'package:flutex_admin/view/components/snack_bar/show_custom_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutex_admin/data/model/global/response_model/response_model.dart';
-import 'package:flutex_admin/view/components/snack_bar/show_custom_snackbar.dart';
 
 class CustomerController extends GetxController {
   CustomerRepo customerRepo;
@@ -31,7 +32,7 @@ class CustomerController extends GetxController {
     isLoading = shouldLoad ? true : false;
     update();
 
-    await loadCustomers();
+    // await loadCustomers();
     isLoading = false;
     update();
   }

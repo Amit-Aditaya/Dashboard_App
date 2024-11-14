@@ -1,29 +1,33 @@
-import 'package:flutex_admin/core/helper/string_format_helper.dart';
-import 'package:flutex_admin/core/route/route.dart';
 import 'package:flutex_admin/core/utils/color_resources.dart';
 import 'package:flutex_admin/core/utils/dimensions.dart';
 import 'package:flutex_admin/core/utils/style.dart';
-import 'package:flutex_admin/data/model/invoice/invoice_model.dart';
 import 'package:flutex_admin/view/components/divider/custom_divider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class InvoiceCard extends StatelessWidget {
   const InvoiceCard({
     super.key,
     required this.index,
-    required this.invoiceModel,
+    required this.id,
+    required this.dueDate,
+    required this.amount,
+    required this.status,
+    //  required this.invoiceModel,
   });
   final int index;
-  final InvoicesModel invoiceModel;
+  // final InvoicesModel invoiceModel;
+  final String id;
+  final String dueDate;
+  final double amount;
+  final String status;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed(RouteHelper.invoiceDetailsScreen,
-            arguments: invoiceModel.data![index].id!);
+        // Get.toNamed(RouteHelper.invoiceDetailsScreen,
+        //     arguments: invoiceModel.data![index].id!);
       },
       child: Card(
         margin: EdgeInsets.zero,
@@ -35,8 +39,7 @@ class InvoiceCard extends StatelessWidget {
               border: Border(
                 left: BorderSide(
                   width: 5.0,
-                  color: ColorResources.invoiceStatusColor(
-                      invoiceModel.data![index].status ?? ''),
+                  color: ColorResources.invoiceTextStatusColor(status),
                 ),
               ),
             ),
@@ -48,11 +51,11 @@ class InvoiceCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '${invoiceModel.data![index].prefix!}${invoiceModel.data![index].number}',
+                          id,
                           style: regularLarge,
                         ),
                         Text(
-                          '${invoiceModel.data![index].total} ${invoiceModel.data![index].currencySymbol}',
+                          '\$$amount',
                           style: regularLarge,
                         ),
                       ],
@@ -62,8 +65,7 @@ class InvoiceCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextIcon(
-                          text: Converter.invoiceStatusString(
-                              invoiceModel.data![index].status ?? ''),
+                          text: status,
                           prefix: const Icon(
                             Icons.check_circle_outline_rounded,
                             color: ColorResources.secondaryColor,
@@ -75,7 +77,7 @@ class InvoiceCard extends StatelessWidget {
                         ),
                         const SizedBox(width: Dimensions.space10),
                         TextIcon(
-                          text: invoiceModel.data![index].date ?? '',
+                          text: dueDate,
                           prefix: const Icon(
                             Icons.calendar_month,
                             color: ColorResources.secondaryColor,

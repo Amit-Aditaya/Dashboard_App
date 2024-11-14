@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutex_admin/core/utils/dimensions.dart';
 import 'package:flutex_admin/core/utils/images.dart';
 import 'package:flutex_admin/core/utils/local_strings.dart';
@@ -33,8 +32,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       controller.loadData();
     });
-
-    //_setData();
   }
 
   @override
@@ -160,38 +157,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
     );
-  }
-
-  void _setData() async {
-    final FirebaseFirestore firestore = FirebaseFirestore.instance;
-
-    // Replace "your_collection_name" with the desired Firestore collection name
-    await firestore.collection('dashboard_data').doc('statistics').set({
-      'invoicesAwaitingPayment': 24,
-      'totalInvoices': 30,
-      'convertedLeads': 0,
-      'totalLeads': 1,
-      'notCompletedTasks': 25,
-      'totalTasks': 26,
-      'projectsInProgress': 2,
-      'totalProjects': 21,
-      'invoices': {
-        'unpaid': 3,
-        'paid': 6,
-        'partiallyPaid': 1,
-        'overdue': 20,
-        'cancelled': 0,
-      },
-      'estimates': {
-        'pending': 5,
-        'approved': 12,
-        'rejected': 2,
-      },
-      'proposals': {
-        'underReview': 4,
-        'accepted': 7,
-        'declined': 1,
-      },
-    });
   }
 }

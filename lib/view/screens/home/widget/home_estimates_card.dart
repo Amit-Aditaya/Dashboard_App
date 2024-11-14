@@ -90,7 +90,6 @@ class HomeEstimatesCard extends StatelessWidget {
                     );
                     List<int> valuesList = intMap.values.toList();
                     List<String> keysList = intMap.keys.toList();
-                    //    return const SizedBox();
 
                     return Padding(
                       padding: const EdgeInsets.symmetric(

@@ -401,7 +401,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                                     : const SizedBox.shrink(),
                                 ListTile(
                                   leading: Icon(
-                                    Icons.account_circle_outlined,
+                                    Icons.settings,
                                     color: Theme.of(context)
                                         .textTheme
                                         .bodyLarge!
@@ -423,6 +423,58 @@ class _HomeDrawerState extends State<HomeDrawer> {
                                   onTap: () {
                                     Navigator.pop(context);
                                     Get.toNamed(RouteHelper.settingsScreen);
+                                  },
+                                ),
+                                ListTile(
+                                  leading: Icon(
+                                    Icons.account_circle_outlined,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge!
+                                        .color,
+                                  ),
+                                  title: Text(
+                                    LocalStrings.customer.tr,
+                                    style: regularDefault.copyWith(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge!
+                                            .color),
+                                  ),
+                                  trailing: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    size: Dimensions.space12,
+                                    color: ColorResources.contentTextColor,
+                                  ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    Get.toNamed(RouteHelper.customerScreen);
+                                  },
+                                ),
+                                ListTile(
+                                  leading: Icon(
+                                    Icons.list_alt_outlined,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge!
+                                        .color,
+                                  ),
+                                  title: Text(
+                                    LocalStrings.invoice.tr,
+                                    style: regularDefault.copyWith(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge!
+                                            .color),
+                                  ),
+                                  trailing: const Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    size: Dimensions.space12,
+                                    color: ColorResources.contentTextColor,
+                                  ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    Get.toNamed(RouteHelper.invoiceScreen);
                                   },
                                 ),
                               ],
