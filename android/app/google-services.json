@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "599865897377",
+    "project_id": "quasayan-c789d",
+    "storage_bucket": "quasayan-c789d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599865897377:android:2a7f614a7571d469cd9be0",
+        "android_client_info": {
+          "package_name": "com.flutex.admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr6WtBNPA7Gfuvv2xlfT4M8FQsA3n0fCs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
